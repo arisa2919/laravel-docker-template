@@ -14,3 +14,22 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/todo', function () {
+    echo 'Hello World!';
+});
+// 一覧表示
+Route::get('/todo', 'TodoController@index')->name('todo.index');
+// 新規作成画面の表示
+Route::get('/todo/create', 'TodoController@create')->name('todo.create');
+// データ保存
+Route::post('/todo', 'TodoController@store')->name('todo.store');
+// 詳細画面の表示
+Route::get('/todo/{id}', 'TodoController@show')->name('todo.show');
+// 更新画面表示
+Route::get('/todo/{id}/edit', 'TodoController@edit')->name('todo.edit');
+// データ更新時
+Route::put('/todo/{id}', 'TodoController@update')->name('todo.update');
+// データ削除時
+Route::delete('/todo/{id}/delete', 'TodoController@delete')->name('todo.delete');
